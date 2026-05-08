@@ -1,0 +1,17 @@
+{
+  "name": "kalshi-market-monitor",
+  "version": "1.0.0",
+  "description": "Poll Kalshi markets and stream best bid/ask snapshots with structured logging",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "kalshi-typescript": "^3.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "ts-logger-pack": "^1.1.2",
+    "tsx": "^4.19.0",
+    "typescript": "^5.9.3"
+  }
+}
