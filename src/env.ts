@@ -1,4 +1,5 @@
 import "dotenv/config";
+import { DEFAULT_POLL_INTERVAL_MS } from "./constants";
 
 const BASE_PATHS = {
   prod: "https://api.elections.kalshi.com/trade-api/v2",
@@ -39,3 +40,21 @@ export const config = {
     process.env.KALSHI_BASE_PATH ??
     (process.env.KALSHI_DEMO === "true" ? BASE_PATHS.demo : BASE_PATHS.prod),
 } as const;
+
+/** Explicit market ticker to poll (highest precedence when set). */
+export const MONITOR_TICKER =
+  process.env.KALSHI_MONITOR_TICKER?.trim() || "";
+
+/** When no ticker, discover first open market in this series (e.g. KXBTC15M). */
+export const MONITOR_SERIES_TICKER =
+  process.env.KALSHI_MONITOR_SERIES_TICKER?.trim() || "";
+
+/** Milliseconds between polls (after each request completes). */
+export const MONITOR_INTERVAL_MS = parseInt(
+  process.env.KALSHI_MONITOR_INTERVAL_MS ?? String(DEFAULT_POLL_INTERVAL_MS),
+  10
+);
+
+/** Optional directory for append-only poll logs. */
+export const MONITOR_LOG_DIR =
+  process.env.KALSHI_MONITOR_LOG_DIR?.trim() || "";
