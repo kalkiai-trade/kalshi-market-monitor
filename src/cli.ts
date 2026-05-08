@@ -13,6 +13,7 @@ import { startQuotePoller } from "./poll";
 import { formatQuoteLine } from "./format";
 import { appendLine } from "./file-log";
 import { SERVICE_NAME } from "./constants";
+import { VERSION } from "./version";
 
 const log = createMonitorLogger("cli");
 
@@ -45,6 +46,7 @@ function parseArgs(argv: string[]): {
 
 async function main(): Promise<void> {
   warnIfUnauthenticated(log);
+  log.info(`${SERVICE_NAME} v${VERSION}`);
   const args = parseArgs(process.argv);
   let ticker = args.ticker || MONITOR_TICKER;
   const series = args.series || MONITOR_SERIES_TICKER;
