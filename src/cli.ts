@@ -48,7 +48,8 @@ async function main(): Promise<void> {
   warnIfUnauthenticated(log);
   log.info(`${SERVICE_NAME} v${VERSION}`);
   const args = parseArgs(process.argv);
-  let ticker = args.ticker || MONITOR_TICKER;
+  let ticker: string | undefined =
+    (args.ticker || MONITOR_TICKER).trim() || undefined;
   const series = args.series || MONITOR_SERIES_TICKER;
   const intervalMs =
     args.intervalMs ??
@@ -66,13 +67,15 @@ async function main(): Promise<void> {
     process.exit(1);
   }
 
+  const marketTicker = ticker;
+
   log.info(
-    `Polling ${ticker} every ${intervalMs}ms after each response (${SERVICE_NAME})`
+    `Polling ${marketTicker} every ${intervalMs}ms after each response (${SERVICE_NAME})`
   );
 
   const logDir = MONITOR_LOG_DIR;
   const stop = startQuotePoller({
-    ticker,
+    ticker: marketTicker,
     intervalMs,
     onQuote: (q) => {
       const line = `[${q.ticker}] ${formatQuoteLine(q)}`;
