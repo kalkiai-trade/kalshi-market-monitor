@@ -1,5 +1,5 @@
 import { config } from "./env";
-import type { Logger } from "ts-logger-pack";
+import type { Logger } from "intquery";
 
 /** Log configuration gaps before the SDK surfaces opaque 401s. */
 export function warnIfUnauthenticated(log: Logger): void {

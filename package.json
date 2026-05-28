@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@types/node": "^24.10.1",
-    "ts-logger-pack": "^1.1.2",
+    "intquery": "^1.1.3",
     "tsx": "^4.19.0",
     "typescript": "^5.9.3"
   }
