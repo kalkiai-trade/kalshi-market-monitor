@@ -1,4 +1,4 @@
-import type { Logger } from "intquery";
+import type { Logger } from "pretty-logger";
 
 const stamp = () => new Date().toISOString();
 

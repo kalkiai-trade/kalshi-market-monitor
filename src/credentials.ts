@@ -1,5 +1,5 @@
 import { config } from "./env";
-import type { Logger } from "intquery";
+import type { Logger } from "pretty-logger";
 
 /** Log configuration gaps before the SDK surfaces opaque 401s. */
 export function warnIfUnauthenticated(log: Logger): void {

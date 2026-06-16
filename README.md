@@ -1,6 +1,6 @@
 # kalshi-market-monitor
 
-Small TypeScript CLI that **polls Kalshi markets** over REST and prints **YES/NO bid and ask** (and last trade) on each tick. Logging uses the **`intquery` `Logger`** interface shape.
+Small TypeScript CLI that **polls Kalshi markets** over REST and prints **YES/NO bid and ask** (and last trade) on each tick.
 
 ## Setup
 
